@@ -324,8 +324,18 @@ void AMController::readVariable(void) {
 }
 
 
-void AMController::writeMessage(const char *variable, float value)
-{
+void AMController::writeMessage(const char *variable, int value) {
+  char buffer[VARIABLELEN + VALUELEN + 3];
+
+  if (!deviceSerial)
+    return;
+
+  snprintf(buffer, VARIABLELEN + VALUELEN + 3, "%s=%d#", variable, value);
+
+  deviceSerial.write((const uint8_t *)buffer, strlen(buffer)*sizeof(char));
+}
+
+void AMController::writeMessage(const char *variable, float value) {
   char buffer[VARIABLELEN + VALUELEN + 3];
   char vbuffer[VALUELEN];
 

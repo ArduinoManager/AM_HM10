@@ -61,18 +61,18 @@ typedef struct  {
 class AMController {
 
   private:
-    char				_variable[VARIABLELEN + 1];
-    char 	   		_value[VALUELEN + 1];
-    bool	   		_var;
+    char		_variable[VARIABLELEN + 1];
+    char 	   	_value[VALUELEN + 1];
+    bool	   	_var;
     int       	_idx;
 
 #ifdef SD_SUPPORT
-    File 				_root;
-    File				_entry;
+    File 		_root;
+    File		_entry;
 #endif
 
 #ifdef ALARMS_SUPPORT
-    unsigned long		_startTime;
+    unsigned long	_startTime;
     unsigned long   _lastAlarmCheck;    
     unsigned long 	_tmpTime;
 #endif
@@ -183,6 +183,7 @@ class AMController {
 
     void temporaryDigitalWrite(uint8_t pin, uint8_t value, unsigned long ms);
     float to_voltage(float adc_value, float vref, uint8_t resolution = 10);
+    uint16_t avgAnalogRead(uint8_t pin, uint8_t samples);
 
 #ifdef ALARMS_SUPPORT
     unsigned long now(void);

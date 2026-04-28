@@ -16,6 +16,8 @@ writeMessage	KEYWORD2
 writeTripleMessage	KEYWORD2
 writeTxtMessage	KEYWORD2
 temporaryDigitalWrite	KEYWORD2
+to_voltage	KEYWORD2
+avgAnalogRead	KEYWORD2
 sendFileList	KEYWORD2
 sendFile	KEYWORD2
 log	KEYWORD2
